@@ -7,7 +7,7 @@ gem 'journey',   :git => 'git://github.com/rails/journey.git', :branch => '1-0-s
 gem 'arel',      github: 'rails/arel'
 
 gem 'sqlite3'
-
+gem 'sorcery'
 
 # Gems used only for assets and not required
 # in production environments by default.
