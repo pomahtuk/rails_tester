@@ -6,7 +6,8 @@ gem 'journey',   :git => 'git://github.com/rails/journey.git', :branch => '1-0-s
 #gem 'arel',      :git => 'git://github.com/rails/arel.git', :branch => '3-0-stable'
 gem 'arel',      github: 'rails/arel'
 
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'mysql2'
 gem 'sorcery'
 
 # Gems used only for assets and not required
@@ -19,6 +20,23 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :test, :development do
+  gem 'faker'
+  gem 'factory_girl'
+
+  gem "rspec-rails",        :git => "git://github.com/rspec/rspec-rails.git"
+  gem "rspec",              :git => "git://github.com/rspec/rspec.git"
+  gem "rspec-core",         :git => "git://github.com/rspec/rspec-core.git"
+  gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
+  gem "rspec-mocks",        :git => "git://github.com/rspec/rspec-mocks.git"
+end
+
+group :development do
+  # Use unicorn as the app server
+  # gem 'unicorn'
+  gem 'thin'
 end
 
 gem 'jquery-rails'
