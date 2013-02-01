@@ -1,0 +1,19 @@
+%h1 Log in
+= form_tag sessions_path, :class => 'form-horizontal' do
+  .control-group
+    = label_tag  :username, nil, :class => 'control-label'
+    .controls
+      = text_field_tag :username, params[:username], :class => 'text_field'
+  .control-group
+    = label_tag  :password, nil, :class => 'control-label'
+    .controls
+      = password_field_tag :password, nil, :class => 'text_field'
+  .control-group
+    = label_tag :remember_me, nil, :class => 'control-label'
+    .controls
+      = check_box_tag :remember_me, 1, params[:remember_me]
+  .form-actions
+    = submit_tag "Log in", :class => 'btn btn-primary'
+
+%h1 Forgot Password?
+= render 'forgot_password_form'
