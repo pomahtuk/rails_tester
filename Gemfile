@@ -1,3 +1,8 @@
+if RUBY_VERSION =~ /1.9/
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+end
+
 source 'https://rubygems.org'
 
 gem 'rails',     github: 'rails/rails'
@@ -8,7 +13,8 @@ gem 'arel',      github: 'rails/arel'
 gem 'mysql2'
 gem 'sorcery'
 
-gem 'haml-rails'#, :git => 'git://github.com/indirect/haml-rails.git'
+#gem 'haml-rails'#, :git => 'git://github.com/indirect/haml-rails.git'
+gem 'haml-rails', github: 'indirect/haml-rails'
 gem 'haml'
 
 gem 'protected_attributes'

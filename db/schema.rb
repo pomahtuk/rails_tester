@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130131064514) do
+ActiveRecord::Schema.define(version: 20130203144306) do
+
+  create_table "posts", force: true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username",                        null: false
@@ -25,6 +33,7 @@ ActiveRecord::Schema.define(version: 20130131064514) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.string   "user_type"
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"

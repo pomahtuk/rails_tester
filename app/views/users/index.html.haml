@@ -7,13 +7,7 @@
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:username)
       %th= model_class.human_attribute_name(:email)
-      %th= model_class.human_attribute_name(:crypted_password)
-      %th= model_class.human_attribute_name(:salt)
-      %th= model_class.human_attribute_name(:remember_me_token)
-      %th= model_class.human_attribute_name(:remember_me_token_expires_at)
-      %th= model_class.human_attribute_name(:reset_password_token)
-      %th= model_class.human_attribute_name(:reset_password_token_expires_at)
-      %th= model_class.human_attribute_name(:reset_password_email_sent_at)
+      %th= model_class.human_attribute_name(:user_type)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -22,13 +16,7 @@
         %td= link_to user.id, user_path(user)
         %td= user.username
         %td= user.email
-        %td= user.crypted_password
-        %td= user.salt
-        %td= user.remember_me_token
-        %td= user.remember_me_token_expires_at
-        %td= user.reset_password_token
-        %td= user.reset_password_token_expires_at
-        %td= user.reset_password_email_sent_at
+        %td= user.user_type
         %td=l user.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user), :class => 'btn btn-mini'

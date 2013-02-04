@@ -25,14 +25,12 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") RailsTest
+          %a.brand(href="/") RailsTest
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
+              %li= link_to "Users", "/admin/users"
               %li.divider-vertical  
-              %li= link_to "Link 2", "/path2"
-              %li.divider-vertical  
-              %li= link_to "Link 3", "/path3"
+              %li= link_to "Posts", "/posts"
             %ul.nav.pull-right
               - if current_user
                 %li.email_navbar
