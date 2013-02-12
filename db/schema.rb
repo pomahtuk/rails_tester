@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130203144306) do
+ActiveRecord::Schema.define(version: 20130207054732) do
+
+  create_table "answers", force: true do |t|
+    t.string   "title"
+    t.boolean  "correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "question_id"
+  end
+
+  create_table "articles", force: true do |t|
+    t.string   "title"
+    t.text     "short"
+    t.text     "full"
+    t.string   "image_url"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "course_id"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses", force: true do |t|
+    t.string   "title"
+    t.text     "short"
+    t.text     "full"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "name"
@@ -19,6 +57,24 @@ ActiveRecord::Schema.define(version: 20130203144306) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "questions", force: true do |t|
+    t.string   "title"
+    t.string   "question_type"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "test_id"
+  end
+
+  create_table "tests", force: true do |t|
+    t.string   "title"
+    t.text     "short"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "course_id"
   end
 
   create_table "users", force: true do |t|

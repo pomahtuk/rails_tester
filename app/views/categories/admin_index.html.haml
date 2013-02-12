@@ -1,0 +1,8 @@
+- model_class = Category
+- content_for :header do
+  =t '.title', :default => model_class.model_name.human.pluralize
+
+%ol.sortable_tree{ data: { max_levels: 5, rebuild_url: rebuild_categories_url } }
+  = sortable_tree @categories
+
+= link_to t('.new', :default => t("helpers.links.new")), new_category_path, :class => 'btn btn-primary'

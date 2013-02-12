@@ -17,7 +17,20 @@ gem 'sorcery'
 gem 'haml-rails', github: 'indirect/haml-rails'
 gem 'haml'
 
+gem 'awesome_nested_set', github: 'collectiveidea/awesome_nested_set'
+gem 'the_sortable_tree', "~> 2.3.0"
+
 gem 'protected_attributes'
+
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'ajax-datatables-rails'
+
+gem 'state_machine'
+
+gem 'kaminari'
+
+gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

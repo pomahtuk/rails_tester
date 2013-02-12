@@ -1,5 +1,5 @@
-!!! 5
-%html(lang="en")
+!!!5
+%html{:lang => "en"}
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
@@ -16,60 +16,87 @@
     %link(href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed")
     %link(href="favicon.ico" rel="shortcut icon")
 
-
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="/") RailsTest
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Users", "/admin/users"
-              %li.divider-vertical  
-              %li= link_to "Posts", "/posts"
-            %ul.nav.pull-right
-              - if current_user
-                %li.email_navbar
-                  Logged in as 
-                  %b
-                    = current_user.username
-                %li.divider-vertical 
-                %li
-                  = link_to "Log out", logout_path
-              - else
-                %li
-                  = link_to "Sign up", signup_path
-                %li.divider-vertical 
-                %li
-                  = link_to "Log in", login_path
-
-    .container
-
-      .row
-        .span9
+    #header
+      %h1
+        %a{:href => "/"} Rails Test Admin
+    / #search
+    /   %input{:placeholder => "Search here...", :type => "text"}/
+    /   %button.tip-right{:title => "Search", :type => "submit"}
+    /     %i.icon-search.icon-white
+    #user-nav.navbar.navbar-inverse
+      %ul.nav.btn-group
+        - if current_user
+          %li.btn.btn-inverse
+            %a{:href => "#", :title => ""}
+              %i.icon.icon-user
+              %span.text 
+                = current_user.username
+          %li.btn.btn-inverse
+            = link_to logout_path do
+              %i.icon.icon-share-alt
+              %span.text Logout
+        - else
+          %li.btn.btn-inverse
+            = link_to signup_path do
+              %i.icon.icon-user
+              %span.text 
+                Sign up
+          %li.btn.btn-inverse
+            = link_to login_path do
+              %i.icon.icon-share-alt
+              %span.text 
+                Log in
+    #sidebar
+      %a.visible-phone{:href => "#"}
+        %i.icon.icon-pencil
+        Interface elements
+      %ul
+        %li.active
+          %a{:href => "/"}
+            %i.icon.icon-home
+            %span Dashboard
+        %li
+          = link_to "/admin/users" do
+            %i.icon.icon-user
+            %span Users
+        %li
+          = link_to "/admin/categories" do
+            %i.icon.icon-folder-open
+            %span Categories
+        %li
+          = link_to "/admin/courses" do
+            %i.icon.icon-book
+            %span Courses
+        %li
+          = link_to "/articles?per_page=1000" do
+            %i.icon-file
+            %span Articles
+        %li
+          = link_to "/tests" do
+            %i.icon-th-list
+            %span Tests
+    #content
+      #content-header
+        %h1 
+          = yield :header
+      #breadcrumb
+        %a.tip-bottom{:href => "#", :title => "Go to Home"}
+          %i.icon-home
+          Home
+      .container-fluid
+        .row-fluid
           - flash.each do |name, msg|
-            .alert{:class => "alert-#{name}"}
-              %button.close{"data-dismiss" => "alert", :type => "button"} ×
-              %strong
-                = name
-              = msg
-
+            .span12
+              .alert{:class => "alert-#{name}"}
+                %button.close{"data-dismiss" => "alert", :type => "button"} ×
+                = msg
+        .row-fluid
           = yield
-        .span3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+        .row-fluid
+          #footer.span12
+            2012 © company
     
-      %footer
-        %p &copy; Company 2013
     /
       Javascripts
       \==================================================

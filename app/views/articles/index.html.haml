@@ -1,0 +1,22 @@
+- model_class = Article
+- content_for :header do
+  =t '.title', :default => model_class.model_name.human.pluralize
+.widget-box
+  .widget-title
+    %h5 Articles list
+  .widget-content.nopadding
+    %table.table.table-striped.table-bordered.data-table.dataTable{:'data-source' => "#{articles_url(format: "json")}", :id => 'articles'}
+      %thead
+        %tr
+          %th= model_class.human_attribute_name(:updated_at)
+          /%th= model_class.human_attribute_name(:id)
+          %th= model_class.human_attribute_name(:title)
+          %th= model_class.human_attribute_name(:short)
+          /%th= model_class.human_attribute_name(:full)
+          %th= model_class.human_attribute_name(:image_url)
+          %th= model_class.human_attribute_name(:state)
+          %th= model_class.human_attribute_name(:course_id)
+          %th=t '.actions', :default => t("helpers.actions")
+      %tbody
+
+= link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary'

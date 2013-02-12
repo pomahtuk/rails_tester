@@ -1,0 +1,25 @@
+- model_class = Course
+- content_for :header do
+  =t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:title) + ':'
+  %br
+  = @course.title
+%p
+  %strong= model_class.human_attribute_name(:short) + ':'
+  %br
+  = @course.short
+%p
+  %strong= model_class.human_attribute_name(:full) + ':'
+  %br
+  = @course.full
+%p
+  %strong= model_class.human_attribute_name(:state) + ':'
+  %br
+  = @course.state
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), courses_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_course_path(@course), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), course_path(@course), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

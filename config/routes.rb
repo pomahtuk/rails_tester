@@ -1,5 +1,23 @@
 RailsTest::Application.routes.draw do
+  resources :answers
+
+  resources :questions do
+    resources :answers, :shallow => true
+  end
+
+  resources :tests do
+    resources :questions, :shallow => true
+  end
+
+  resources :articles
+
   resources :posts
+
+  resources :courses do 
+    resources :tests, :shallow => true
+    resources :articles, :shallow => true
+  end
+
 
   root to: 'welcome#index'
 
@@ -13,6 +31,17 @@ RailsTest::Application.routes.draw do
 
   scope "/admin" do
     resources :users
+    get '/categories' => 'categories#admin_index'
+    get '/courses' => 'courses#admin_index'
+  end
+
+  resources :categories, :except => [:admin_index] do
+    collection do
+      get :manage
+
+      # required for Sortable GUI server side actions
+      post :rebuild
+    end
   end
 
 end

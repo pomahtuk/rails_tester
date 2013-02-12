@@ -15,7 +15,7 @@
 @fontAwesomeSvgPath: asset-path("fontawesome-webfont.svg");
 
 // Font Awesome
-@import "fontawesome";
+//@import "fontawesome";
 
 .navbar-fixed-top + .container{
   margin-top:40px;
@@ -23,10 +23,31 @@
 
 .email_navbar{
   line-height: 40px;
+  color: ##999999;
+}
+
+.table th, .table td {
+  max-width: 250px;
+}
+
+.btn [class^="icon-"], .nav [class^="icon-"], .btn [class*=" icon-"], .nav [class*=" icon-"] {
+  line-height: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  display: block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url(/assets/glyphicons-halflings.png);
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+  margin-top: 1px;
 }
 
 // Glyphicons
-//@import "twitter/bootstrap/sprites.less";
+@import "twitter/bootstrap/sprites.less";
 
 // Your custom LESS stylesheets goes here
 //
