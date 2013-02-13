@@ -25,7 +25,7 @@ def create_couses(category)
   3.times do |index|
     puts 'Create new Course'
 
-    cours = category.courses.new
+    cours                    = category.courses.new
     cours.title              = Faker::Lorem.paragraph 1
     cours.short              = Faker::Lorem.paragraph 3
     cours.full               = Faker::Lorem.paragraph 6
@@ -51,11 +51,11 @@ def create_article (course)
     article.title              = Faker::Lorem.paragraph 1
     article.short              = Faker::Lorem.paragraph 3
     article.full               = Faker::Lorem.paragraph 6
-    article.image_url          = 'http://lorempixel.com/400/200'
+    article.picture            = URI.parse('http://lorempixel.com/400/200')
 
     article.save!  
 
-    article.send("to_#{[:draft, :published].sample}")
+    article.publish
 
     puts 'new Article created'
   end
@@ -65,7 +65,7 @@ def create_test (course)
   3.times do
     puts 'Create new Test'
 
-    test = course.tests.new
+    test                    = course.tests.new
     test.title              = Faker::Lorem.paragraph 1
     test.short              = Faker::Lorem.paragraph 3
 

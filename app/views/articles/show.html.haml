@@ -2,6 +2,18 @@
 - content_for :header do
   =t '.title', :default => model_class.model_name.human
 
+- content_for :breadcrumbs do
+  #breadcrumb
+    = link_to '/' do
+      %i.icon-home
+      Home
+    = link_to articles_url do
+      %i.icon-file
+      Articles
+    = link_to article_url(@article) do
+      %i.icon-file
+      Article
+
 %p
   %strong= model_class.human_attribute_name(:title) + ':'
   %br
@@ -15,10 +27,6 @@
   %br
   = @article.full
 %p
-  %strong= model_class.human_attribute_name(:image_url) + ':'
-  %br
-  = @article.image_url
-%p
   %strong= model_class.human_attribute_name(:state) + ':'
   %br
   = @article.state
@@ -26,6 +34,11 @@
   %strong= model_class.human_attribute_name(:course_id) + ':'
   %br
   = @article.course_id
+%p
+  %strong= model_class.human_attribute_name(:picture) + ':'
+  %br
+    = image_tag @article.picture.url(:thumb)
+
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), articles_path, :class => 'btn'

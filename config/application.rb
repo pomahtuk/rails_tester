@@ -74,5 +74,6 @@ module RailsTest
     config.action_mailer.default_url_options = {:host => "demo.allvbg.ru:3000"}
     #config.action_controller.asset_host = "http://localhost:3000"
 
+
   end
 end

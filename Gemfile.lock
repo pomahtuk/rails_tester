@@ -150,6 +150,24 @@ GIT
       execjs
       railties (>= 3.1)
 
+GIT
+  remote: git://github.com/the-teacher/the_role.git
+  revision: 4466d955265cd9071b5b417b620a4a643a2d54b5
+  specs:
+    the_role (1.7.0)
+      haml
+
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: e421bc1b0d5806f53be8a664c5f3c70c2e285e7e
+  specs:
+    paperclip (3.4.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -158,6 +176,10 @@ GEM
     atomic (1.0.1)
     bcrypt-ruby (3.0.1)
     builder (3.1.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -203,6 +225,7 @@ GEM
     multi_json (1.5.0)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
+    nested_form (0.3.1)
     oauth (0.4.7)
     oauth2 (0.8.0)
       faraday (~> 0.8)
@@ -275,6 +298,8 @@ DEPENDENCIES
   kaminari
   less-rails
   mysql2
+  nested_form
+  paperclip!
   protected_attributes
   rails!
   rspec!
@@ -285,6 +310,7 @@ DEPENDENCIES
   sass-rails!
   sorcery
   state_machine
+  the_role!
   the_sortable_tree (~> 2.3.0)
   therubyracer
   thin

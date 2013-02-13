@@ -29,8 +29,13 @@ gem 'state_machine'
 
 gem 'kaminari'
 
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
 
+gem 'the_role', github: 'the-teacher/the_role'
+
+gem "nested_form"
 
 # Gems used only for assets and not required
 # in production environments by default.

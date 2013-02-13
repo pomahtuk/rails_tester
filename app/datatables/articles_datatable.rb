@@ -1,39 +1,3 @@
-# class ArticlesDatatable < AjaxDatatablesRails
-  
-#   def initialize(view)
-#     @model_name = Article
-#     @columns = [article.title, article.short, article.state]
-#     @searchable_columns = [article.title, article.short, article.state]
-#     super(view)
-#   end
-  
-# private
-
-#     def data
-#       articles.map do |article|
-#         [
-#           articles.title, 
-#           articles.short, 
-#           articles.state
-#         ]
-#       end
-#     end
-
-#     def articles
-#       @articles ||= get_raw_records
-#     end
-
-#     def get_raw_records
-#       Article.all
-#     end
-    
-#     def get_raw_record_count
-#       search_records(get_raw_records).count
-#     end
-    
-#     # ==== Insert 'presenter'-like methods below if necessary
-# end
-
 class ArticlesDatatable < AjaxDatatablesRails
   delegate :params, :link_to, :number_to_currency, to: :@view
 
@@ -58,7 +22,8 @@ private
         article.updated_at.strftime("%B %e, %Y"),
         link_to(article.title, article),
         article.short,
-        image_tag(article.image_url),
+        #image_tag(article.image_url),
+        image_tag(article.picture.url(:original)),
         article.state,
         link_to(article.course.title, article.course),
         "

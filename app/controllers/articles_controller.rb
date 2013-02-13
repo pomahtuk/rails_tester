@@ -26,10 +26,16 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    if request.xhr?
+      render layout: false
+    end
   end
 
   # GET /articles/1/edit
   def edit
+    if request.xhr?
+      render layout: false
+    end
   end
 
   # POST /articles
@@ -66,6 +72,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :short, :full, :image_url, :state)
+      params.require(:article).permit(:id, :title, :short, :full, :image_url, :state, :picture, :course_id)
     end
 end
