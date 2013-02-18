@@ -6,6 +6,20 @@ body {
 	background-color: #444444;
 }
 
+.courses li.courses, .categories li.categories, .articles li.articles, .users li.users, .tests li.tests, .questions li.questions, .answers li.answers, .welcome li.welcome{
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) inset;
+  background-color: #3a3a3a;
+  background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#333333), to(#3F3F3F));
+  background-image: -webkit-linear-gradient(top, #333333 0%, #3F3F3F 100%);
+  background-image: -moz-linear-gradient(top, #333333 0%, #3F3F3F 100%);
+  background-image: -ms-linear-gradient(top, #333333 0%, #3F3F3F 100%);
+  background-image: -o-linear-gradient(top, #333333 0%, #3F3F3F 100%);
+  background-image: linear-gradient(top, #333333 0%, #3F3F3F 100%);
+}
+.courses li.courses a, .categories li.categories a, .articles li.articles a, .users li.users a, .tests li.tests a, .questions li.questions a, .answers li.answers a, .welcome li.welcome a{
+  background: url("/assets/menu-active.png") no-repeat scroll right center transparent !important;
+}
+
 #header {
     box-shadow: 0 1px 0 #333333;
 	background-color: #333333;

@@ -19,12 +19,12 @@ private
   def data
     articles.map do |article|
       [
+        check_box('id',article.id, {}, article.id, article.id),
         article.updated_at.strftime("%B %e, %Y"),
         link_to(article.title, article),
         article.short,
-        #image_tag(article.image_url),
         image_tag(article.picture.url(:original)),
-        article.state,
+        "<a name='state' class='state_select' data-type='select' data-pk='#{article.id}' data-url='#{article_path(article)}'>#{article.state}</a>",
         link_to(article.course.title, article.course),
         "
           #{link_to('edit', edit_article_path(article), :class => 'btn btn-mini')}

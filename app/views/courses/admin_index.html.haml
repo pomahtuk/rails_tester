@@ -1,33 +1,33 @@
 - model_class = Course
 - content_for :header do
   =t '.title', :default => model_class.model_name.human.pluralize
-%table.table.table-hover
-  %thead
-    %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:title)
-      %th= model_class.human_attribute_name(:short)
-      %th= model_class.human_attribute_name(:full)
-      %th= model_class.human_attribute_name(:state)
-      %th= model_class.human_attribute_name(:created_at)
-      %th Category
-      %th=t '.actions', :default => t("helpers.actions")
-  %tbody
-    - @courses.each do |course|
-      %tr
-        %td= link_to course.id, course_path(course)
-        %td= course.title
-        %td= course.short
-        %td= course.full
-        %td= course.state
-        %td=l course.created_at
-        %td= link_to course.category.name, category_path(course.category)
-        %td
-          = link_to edit_course_path(course) , :class => 'btn btn-mini' do
-            %i.icon-pencil
-            Edit
-          = link_to course_path(course), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' do
-            %i.icon-trash
-            Destroy 
+- model_class = Course
+- content_for :header do
+  =t '.title', :default => model_class.model_name.human.pluralize
+
+- content_for :breadcrumbs do
+  #breadcrumb
+    = link_to '/' do
+      %i.icon-home
+      Home
+    = link_to courses_url do
+      %i.icon-book
+      Courses
+
+.widget-box
+  .widget-title
+    %h5 Courses list
+  .widget-content.nopadding
+    %table.table.table-striped.table-bordered.data-table.dataTable{:'data-source' => "/admin/courses.json", :id => 'courses'}
+      %thead
+        %tr
+          %th
+          %th= model_class.human_attribute_name(:updated_at)
+          %th= model_class.human_attribute_name(:title)
+          %th= model_class.human_attribute_name(:short)
+          %th= model_class.human_attribute_name(:state)
+          %th=t '.actions', :default => t("helpers.actions")
+      %tbody
+
 
 = link_to t('.new', :default => t("helpers.links.new")), new_course_path, :class => 'btn btn-primary'

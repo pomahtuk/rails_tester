@@ -1,0 +1,16 @@
+.tabbable{
+  top: -35px;
+  width: 81%;
+}
+.tab-pane{
+  padding: 20px;
+}
+.controls .select2-container{
+  width: 81%;
+}
+.widget-title .nav-tabs li a {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

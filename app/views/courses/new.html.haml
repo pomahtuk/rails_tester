@@ -1,4 +1,22 @@
 - model_class = Course
 - content_for :header do
   =t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human, :default => "New #{model_class.model_name.human}")
-= render :partial => "form"
+
+- content_for :breadcrumbs do
+  #breadcrumb
+    = link_to '/' do
+      %i.icon-home
+      Home
+    = link_to '/admin/courses' do
+      %i.icon-book
+      Courses
+    = link_to '#' do
+      %i.icon-plus-sign
+      New
+
+
+.widget-box
+  .widget-title
+    %h5 Edit Course
+  .widget-content.nopadding
+    = render :partial => "create_form"

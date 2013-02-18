@@ -1,0 +1,24 @@
+%p
+  %strong Title
+  %br
+  = article.title
+%p
+  %strong Short
+  %br
+  = article.short
+%p
+  %strong Full
+  %br
+  = article.full
+%p
+  %strong State
+  %br
+  = article.state
+%p
+  %strong Picture
+  %br
+    = image_tag article.picture.url
+
+.form-actions
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_article_path(article), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), article_path(article), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

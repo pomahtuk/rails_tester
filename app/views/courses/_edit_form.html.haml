@@ -1,0 +1,70 @@
+= form_for @course, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :title, :class => 'control-label'
+    .controls
+      = f.text_field :title, :class => 'text_field'
+  .control-group
+    = f.label :short, :class => 'control-label'
+    .controls
+      = f.text_area :short, :class => 'text_field wysihtml5', :rows => "10"
+  .control-group
+    = f.label :full, :class => 'control-label'
+    .controls
+      = f.text_area :full, :class => 'text_field wysihtml5', :rows => "10"
+  .control-group
+    = f.label :state, :class => 'control-label'
+    .controls
+      = f.select :state, ['draft', 'published']
+  .control-group
+    %label.control-label Articles
+    .controls
+      .accordion
+        .widget-box.accordion-group.tabbable
+          .accordion-heading
+            .widget-title
+              %ul.nav.nav-tabs{:id => 'myTab'}
+                - @course.articles.each_with_index do |article, index|
+                  - if index == 0
+                    %li.active
+                      =link_to "#{article.title}", "#tab#{index+1}", :'data-toggle' => 'tab'
+                  -else
+                    %li
+                      =link_to "#{article.title}", "#tab#{index+1}", :'data-toggle' => 'tab'
+          .accordion-body.collapse
+            .widget-content.nopadding.tab-content
+              - @course.articles.each_with_index do |article, index|
+                - if index == 0
+                  .tab-pane.active{:id => "tab#{index+1}"}
+                    = render :partial => 'article', :object => article
+                - else
+                  .tab-pane{:id => "tab#{index+1}"}
+                    = render :partial => 'article', :object => article
+
+
+        .widget-box.accordion-group.tabbable
+          .accordion-heading
+            .widget-title
+              %ul.nav.nav-tabs{:id => 'myTab'}
+                - @course.tests.each_with_index do |test, index|
+                  - if index == 0
+                    %li.active
+                      =link_to "#{test.title}", "#tab#{index+1}", :'data-toggle' => 'tab'
+                  -else
+                    %li
+                      =link_to "#{test.title}", "#tab#{index+1}", :'data-toggle' => 'tab'
+          .accordion-body.collapse
+            .widget-content.nopadding.tab-content
+              - @course.tests.each_with_index do |test, index|
+                - if index == 0
+                  .tab-pane.active{:id => "tab#{index+1}"}
+                    = render :partial => 'test', :object => test
+                - else
+                  .tab-pane{:id => "tab#{index+1}"}
+                    = render :partial => 'test', :object => test
+
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), courses_path, :class => 'btn'
+    = link_to 'Add Article', '#', :class => 'add_articles btn'
+
+

@@ -6,9 +6,22 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
-  # GET /courses
+  # GET /admin/courses
   def admin_index
-    @courses = Course.all
+    if params[:format] == 'json'
+      render :json => CoursesDatatable.new(view_context)
+    else
+      per_page = if params[:per_page]
+        params[:per_page]
+      else
+        5
+      end
+      @courses = if params[:course_id] 
+        Course.where(:course_id => params[:course_id]).order("id").page(params[:page]).per(per_page)
+      else
+        Course.all.order("id").page(params[:page]).per(per_page)
+      end
+    end
   end
 
   # GET /courses/1

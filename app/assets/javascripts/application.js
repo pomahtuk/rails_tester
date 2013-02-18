@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require dataTables/jquery.dataTables
 //= require jquery-ui
 //= require jquery_ujs
 //= require jquery.ui.nestedSortable
@@ -18,5 +19,3 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require bootstrap-wysihtml5
-//= require bootstrap-wysihtml5/locales
-//= require dataTables/jquery.dataTables

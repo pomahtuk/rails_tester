@@ -43,18 +43,38 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
+      if request.xhr?
+        render :show, :layout => false, notice: 'Article was successfully created.'
+      else
+        redirect_to @article, notice: 'Article was successfully created.'
+      end
     else
-      render action: 'new'
+      if request.xhr?
+        render json: { :errors => @article.errors.full_messages }, status: 422
+      else
+        render action: 'new'
+      end
     end
   end
 
   # PATCH/PUT /articles/1
   def update
-    if @article.update(article_params)
-      redirect_to @article, notice: 'Article was successfully updated.'
+    if !!params[:pk]
+      art = Article.find(params[:pk])
+      if params[:name] == 'state'
+        if params[:value] == 'draft' && art.state == 'published'
+          art.unpublish
+        else
+          art.publish
+        end
+      end
+      render json: art
     else
-      render action: 'edit'
+      if @article.update(article_params)
+        redirect_to @article, notice: 'Article was successfully updated.'
+      else
+        render action: 'edit'
+      end
     end
   end
 
