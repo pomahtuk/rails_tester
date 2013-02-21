@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  include TesterControllers::StateMachine
+
   # GET /articles
   def index
     if params[:format] == 'json'
@@ -44,7 +46,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       if request.xhr?
-        render :show, :layout => false, notice: 'Article was successfully created.'
+        return render(:show, :layout => false, notice: 'Article was successfully created.')
       else
         redirect_to @article, notice: 'Article was successfully created.'
       end
@@ -60,15 +62,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   def update
     if !!params[:pk]
-      art = Article.find(params[:pk])
-      if params[:name] == 'state'
-        if params[:value] == 'draft' && art.state == 'published'
-          art.unpublish
-        else
-          art.publish
-        end
-      end
-      render json: art
+      define_state_for_object()
     else
       if @article.update(article_params)
         redirect_to @article, notice: 'Article was successfully updated.'
@@ -81,7 +75,11 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
-    redirect_to articles_url
+    if request.xhr?
+      render inline: 'Ok'
+    else
+      redirect_to articles_url
+    end
   end
 
   private

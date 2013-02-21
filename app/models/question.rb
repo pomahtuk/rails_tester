@@ -8,4 +8,6 @@ class Question < ActiveRecord::Base
 
   accepts_nested_attributes_for :answers, :reject_if => lambda { |a| a[:title].blank? }, :allow_destroy => true
 
+  include TesterModels::StateMachine
+
 end

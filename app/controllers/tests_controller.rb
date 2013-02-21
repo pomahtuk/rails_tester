@@ -1,6 +1,8 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
 
+  include TesterControllers::StateMachine
+
   # GET /tests
   def index
     @tests = params[:course_id] ? Test.where(:course_id => params[:course_id]) : Test.all
@@ -13,10 +15,16 @@ class TestsController < ApplicationController
   # GET /tests/new
   def new
     @test = Test.new
+    if request.xhr?
+      render layout: false
+    end
   end
 
   # GET /tests/1/edit
   def edit
+    if request.xhr?
+      render layout: false
+    end
   end
 
   # POST /tests
@@ -24,18 +32,35 @@ class TestsController < ApplicationController
     @test = Test.new(test_params)
 
     if @test.save
-      redirect_to @test, notice: 'Test was successfully created.'
+      if request.xhr?
+        render :show, :layout => false, notice: 'Test was successfully created.'
+      else
+        redirect_to @test, notice: 'Test was successfully created.'
+      end
     else
-      render action: 'new'
+      if request.xhr?
+        render json: { :errors => @test.errors.full_messages }, status: 422
+      else
+        render action: 'new'
+      end
     end
   end
 
   # PATCH/PUT /tests/1
   def update
-    if @test.update(test_params)
-      redirect_to @test, notice: 'Test was successfully updated.'
+    # if @test.update(test_params)
+    #   redirect_to @test, notice: 'Test was successfully updated.'
+    # else
+    #   render action: 'edit'
+    # end
+    if !!params[:pk]
+      define_state_for_object()
     else
-      render action: 'edit'
+      if @test.update(test_params)
+        redirect_to @test, notice: 'Test was successfully updated.'
+      else
+        render action: 'edit'
+      end
     end
   end
 

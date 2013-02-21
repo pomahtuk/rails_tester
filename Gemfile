@@ -35,7 +35,7 @@ gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails', :git =
 
 gem 'the_role', github: 'the-teacher/the_role'
 
-gem 'remotipart', github: 'JangoSteve/remotipart'
+#gem 'remotipart', github: 'JangoSteve/remotipart'
 
 # Gems used only for assets and not required
 # in production environments by default.

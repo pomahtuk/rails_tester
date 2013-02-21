@@ -19,14 +19,15 @@
     = f.label :course_id, :class => 'control-label'
     .controls
       = f.collection_select :course_id, Course.all, :id, :title
-  .control-group
-    = f.label :picture, :class => 'control-label'
-    .controls
-      #uniform-undefined.uploader
-        = f.file_field :picture
-        %span.filename No file selected
-        %span.action Choose File
+  -unless !!params[:remote]
+    .control-group
+      = f.label :picture, :class => 'control-label'
+      .controls
+        #uniform-undefined.uploader
+          = f.file_field :picture
+          %span.filename No file selected
+          %span.action Choose File
 
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), articles_path, :class => 'btn'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), articles_path, :class => 'btn cancel'

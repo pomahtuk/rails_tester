@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
+  include TesterControllers::StateMachine
+
   # GET /courses
   def index
     @courses = Course.all
@@ -50,10 +52,14 @@ class CoursesController < ApplicationController
 
   # PATCH/PUT /courses/1
   def update
-    if @course.update(course_params)
-      redirect_to @course, notice: 'Course was successfully updated.'
+    if !!params[:pk]
+      define_state_for_object()
     else
-      render action: 'edit'
+      if @course.update(course_params)
+        redirect_to @course, notice: 'Course was successfully updated.'
+      else
+        render action: 'edit'
+      end
     end
   end
 

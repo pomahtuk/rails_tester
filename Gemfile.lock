@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/JangoSteve/remotipart.git
-  revision: 77c10a95d8ef90d19ca6e0552be531485cb53fb2
-  specs:
-    remotipart (1.0.5)
-
-GIT
   remote: git://github.com/Nerian/bootstrap-wysihtml5-rails.git
   revision: b1144834a17beba8c7e3252a683c5af18e8d6475
   specs:
@@ -306,7 +300,6 @@ DEPENDENCIES
   paperclip!
   protected_attributes
   rails!
-  remotipart!
   rspec!
   rspec-core!
   rspec-expectations!

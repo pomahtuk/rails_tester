@@ -14,8 +14,11 @@
       %i.icon-edit
       Edit
 
-.widget-box
-  .widget-title
-    %h5 Edit article
-  .widget-content.nopadding
-    = render :partial => "form"
+- unless !!params[:remote]
+  .widget-box
+    .widget-title
+      %h5 Edit article
+    .widget-content.nopadding
+      = render :partial => "form"
+- else
+  = render :partial => "form"

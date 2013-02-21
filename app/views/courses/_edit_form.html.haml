@@ -16,12 +16,18 @@
     .controls
       = f.select :state, ['draft', 'published']
   .control-group
-    %label.control-label Articles
+    %label.control-label 
+      Articles and Tests
     .controls
-      .accordion
+      .accordion{:id => 'accordion1'}
         .widget-box.accordion-group.tabbable
           .accordion-heading
             .widget-title
+              %a{:'data-toggle' => "collapse", :'data-parent' => "#accordion1", :href => "#collapseOne", :class => 'collapseOne'}
+                %span.icon.pre_accordeon
+                  %i.icon-file
+                %h5.pre_accordeon
+                  Articles 
               %ul.nav.nav-tabs{:id => 'myTab'}
                 - @course.articles.each_with_index do |article, index|
                   - if index == 0
@@ -30,7 +36,7 @@
                   -else
                     %li
                       =link_to "#{article.title}", "#tab#{index+1}", :'data-toggle' => 'tab'
-          .accordion-body.collapse
+          .accordion-body.collapse{:id => 'collapseOne'}
             .widget-content.nopadding.tab-content
               - @course.articles.each_with_index do |article, index|
                 - if index == 0
@@ -44,27 +50,33 @@
         .widget-box.accordion-group.tabbable
           .accordion-heading
             .widget-title
-              %ul.nav.nav-tabs{:id => 'myTab'}
+              %a{:'data-toggle' => "collapse", :'data-parent' => "#accordion1", :href => "#collapseTwo", :class => 'collapseTwo'}
+                %span.icon.pre_accordeon
+                  %i.icon-th-list
+                %h5.pre_accordeon
+                  Tests
+              %ul.nav.nav-tabs{:id => 'myTab1'}
                 - @course.tests.each_with_index do |test, index|
                   - if index == 0
                     %li.active
-                      =link_to "#{test.title}", "#tab#{index+1}", :'data-toggle' => 'tab'
+                      =link_to "#{test.title}", "#tab1#{index+1}", :'data-toggle' => 'tab'
                   -else
                     %li
-                      =link_to "#{test.title}", "#tab#{index+1}", :'data-toggle' => 'tab'
-          .accordion-body.collapse
+                      =link_to "#{test.title}", "#tab1#{index+1}", :'data-toggle' => 'tab'
+          .accordion-body.collapse{:id => 'collapseTwo'}
             .widget-content.nopadding.tab-content
               - @course.tests.each_with_index do |test, index|
                 - if index == 0
-                  .tab-pane.active{:id => "tab#{index+1}"}
+                  .tab-pane.active{:id => "tab1#{index+1}"}
                     = render :partial => 'test', :object => test
                 - else
-                  .tab-pane{:id => "tab#{index+1}"}
+                  .tab-pane{:id => "tab1#{index+1}"}
                     = render :partial => 'test', :object => test
 
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), courses_path, :class => 'btn'
     = link_to 'Add Article', '#', :class => 'add_articles btn'
+    = link_to 'Add Test', '#', :class => 'add_tests btn'
 
 

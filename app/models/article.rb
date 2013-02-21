@@ -10,34 +10,6 @@ class Article < ActiveRecord::Base
 
   belongs_to :course
 
-  state_machine :initial => :draft do
-    event :publish do
-      transition :draft => :published
-    end
-    
-    event :unpublish do
-      transition :published => :draft
-    end
-  end
-
-  # state_machine :initial => :draft do
-
-  #   state :draft
-  #   state :published
-  #   state :deleted
-
-  #   event :to_draft do 
-  #     transition all => :draft
-  #   end
-
-  #   event :to_published do
-  #     transition all => :published
-  #   end  
-
-  #   event :to_deleted do
-  #     transition all => :deleted
-  #   end 
-
-  # end
+  include TesterModels::StateMachine
 
 end

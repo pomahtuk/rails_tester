@@ -14,3 +14,18 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.widget-title{
+  h5{
+    &.pre_accordeon{
+      border-right: 2px solid #DDDDDD;
+    }
+  }
+  span{
+    &.icon{
+      &.pre_accordeon{
+        border:none;
+      }
+    }
+  }
+}

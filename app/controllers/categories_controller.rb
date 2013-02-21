@@ -10,12 +10,12 @@ class CategoriesController < ApplicationController
 
   # GET /categories
   def index
-    @categories = Category.all
+    @categories = Category.nested_set.all
   end
 
   # GET /categories
   def admin_index
-    @categories = Category.all
+    @categories = Category.nested_set.all
   end
 
   # GET /categories/1
