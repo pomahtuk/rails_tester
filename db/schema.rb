@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20130213060857) do
   create_table "questions", force: true do |t|
     t.string   "title"
     t.string   "question_type"
+    t.string   "type"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"

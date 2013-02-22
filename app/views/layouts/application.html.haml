@@ -43,6 +43,16 @@
               %span.text 
                 Sign up
           %li.btn.btn-inverse
+            = link_to auth_at_provider_path(:provider => :vk) do
+              %i.icon.icon-share-alt
+              %span.text 
+                Log in via VK
+          %li.btn.btn-inverse
+            = link_to auth_at_provider_path(:provider => :facebook) do
+              %i.icon.icon-share-alt
+              %span.text 
+                Log in via FB
+          %li.btn.btn-inverse
             = link_to login_path do
               %i.icon.icon-share-alt
               %span.text 

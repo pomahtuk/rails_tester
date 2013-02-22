@@ -1,4 +1,6 @@
 RailsTest::Application.routes.draw do
+  get "oauths/oauth"
+  get "oauths/callback"
   resources :answers
 
   resources :questions do
@@ -20,6 +22,9 @@ RailsTest::Application.routes.draw do
 
 
   root to: 'welcome#index'
+
+  get "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"

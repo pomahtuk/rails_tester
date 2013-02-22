@@ -11,11 +11,11 @@ gem 'arel',      github: 'rails/arel'
 
 #gem 'sqlite3'
 gem 'mysql2'
-gem 'sorcery'
+gem 'sorcery', github: 'NoamB/sorcery'
 
 #gem 'haml-rails'#, :git => 'git://github.com/indirect/haml-rails.git'
 gem 'haml-rails', github: 'indirect/haml-rails'
-gem 'haml'
+gem 'haml', '= 3.1.7'
 
 gem 'awesome_nested_set', github: 'collectiveidea/awesome_nested_set'
 gem 'the_sortable_tree', "~> 2.3.0"
@@ -28,6 +28,8 @@ gem 'ajax-datatables-rails'
 gem 'state_machine'
 
 gem 'kaminari'
+
+gem 'compass'
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
