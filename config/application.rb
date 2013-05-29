@@ -62,10 +62,10 @@ module RailsTest
     config.assets.version = '1.0'
 
     config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
+      :address              => "smtp.gmail.comm",
       :port                 => 587,
       :user_name            => 'pomahtuk89',
-      :password             => 'PMaN1989',
+      :password             => 'ipauk17y2',
       :authentication       => 'plain',
       :enable_starttls_auto => true
     }

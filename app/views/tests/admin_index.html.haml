@@ -1,0 +1,34 @@
+- model_class = Test
+- content_for :header do
+  =t '.title', :default => model_class.model_name.human.pluralize
+- model_class = Test
+- content_for :header do
+  =t '.title', :default => model_class.model_name.human.pluralize
+
+- content_for :breadcrumbs do
+  #breadcrumb
+    = link_to '/' do
+      %i.icon-home
+      Home
+    = link_to courses_url do
+      %i.icon-book
+      Courses
+
+.widget-box
+  .widget-title
+    %h5 Courses list
+  .widget-content.nopadding
+    %table.table.table-striped.table-bordered.data-table.dataTable{:'data-source' => "/admin/tests.json", :id => 'tests'}
+      %thead
+        %tr
+          %th
+          %th= model_class.human_attribute_name(:updated_at)
+          %th= model_class.human_attribute_name(:title)
+          %th= model_class.human_attribute_name(:short)
+          %th= model_class.human_attribute_name(:state)
+          %th= model_class.human_attribute_name(:course)
+          %th=t '.actions', :default => t("helpers.actions")
+      %tbody
+
+
+= link_to t('.new', :default => t("helpers.links.new")), new_test_path, :class => 'btn btn-primary'

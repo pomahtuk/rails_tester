@@ -1,0 +1,108 @@
+I, [2013-05-29T16:07:05.327536 #25755]  INFO -- : Refreshing Gem list
+DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. (called from block in <top (required)> at /var/www/pman/data/www/rails_test/config/environments/development.rb:10)
+config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+
+  * development - set it to false
+  * test - set it to false (unless you use a tool that preloads your test environment)
+  * production - set it to true
+
+
+DEPRECATION WARNING: The Active Record auto explain feature has been removed.
+
+To disable this message remove the `active_record.auto_explain_threshold_in_seconds`
+option from the `config/environments/*.rb` config file.
+
+See http://guides.rubyonrails.org/4_0_release_notes.html for more information.
+ 
+/usr/local/rvm/gems/ruby-1.9.3-p327/gems/actionpack-4.0.0.rc1/lib/action_dispatch/middleware/stack.rb:107:in `delete': can't modify frozen Array (RuntimeError)
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/actionpack-4.0.0.rc1/lib/action_dispatch/middleware/stack.rb:107:in `delete'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/bundler/gems/sass-rails-33799418f104/lib/sass/rails/railtie.rb:29:in `block in <class:Railtie>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:36:in `call'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:36:in `execute_hook'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:44:in `each'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/application/finisher.rb:62:in `block in <module:Finisher>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/initializable.rb:30:in `instance_exec'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/initializable.rb:30:in `run'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/initializable.rb:55:in `block in run_initializers'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:150:in `block in tsort_each'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:183:in `block (2 levels) in each_strongly_connected_component'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:219:in `each_strongly_connected_component_from'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:182:in `block in each_strongly_connected_component'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:180:in `each'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:180:in `each_strongly_connected_component'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:148:in `tsort_each'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/initializable.rb:54:in `run_initializers'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/application.rb:214:in `initialize!'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/railtie/configurable.rb:30:in `method_missing'
+	from /var/www/pman/data/www/rails_test/config/environment.rb:5:in `<top (required)>'
+	from config.ru:4:in `require'
+	from config.ru:4:in `block in <main>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1:in `<main>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn.rb:44:in `eval'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn.rb:44:in `block in builder'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/bin/unicorn_rails:139:in `call'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/bin/unicorn_rails:139:in `block in rails_builder'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn/http_server.rb:722:in `call'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn/http_server.rb:722:in `build_app!'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn/http_server.rb:140:in `start'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/bin/unicorn_rails:209:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/bin/unicorn_rails:19:in `load'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/bin/unicorn_rails:19:in `<main>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/bin/ruby_noexec_wrapper:14:in `<main>'
+I, [2013-05-29T16:07:39.443005 #25779]  INFO -- : Refreshing Gem list
+config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+
+  * development - set it to false
+  * test - set it to false (unless you use a tool that preloads your test environment)
+  * production - set it to true
+
+
+/usr/local/rvm/gems/ruby-1.9.3-p327/gems/activerecord-4.0.0.rc1/lib/active_record/connection_adapters/connection_specification.rb:52:in `resolve_hash_connection': database configuration does not specify adapter (ActiveRecord::AdapterNotSpecified)
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activerecord-4.0.0.rc1/lib/active_record/connection_adapters/connection_specification.rb:46:in `resolve_string_connection'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activerecord-4.0.0.rc1/lib/active_record/connection_adapters/connection_specification.rb:30:in `spec'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activerecord-4.0.0.rc1/lib/active_record/connection_handling.rb:39:in `establish_connection'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activerecord-4.0.0.rc1/lib/active_record/railtie.rb:170:in `block (2 levels) in <class:Railtie>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:28:in `block in on_load'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:27:in `each'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activesupport-4.0.0.rc1/lib/active_support/lazy_load_hooks.rb:27:in `on_load'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/activerecord-4.0.0.rc1/lib/active_record/railtie.rb:168:in `block in <class:Railtie>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/initializable.rb:30:in `instance_exec'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/initializable.rb:30:in `run'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/initializable.rb:55:in `block in run_initializers'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:150:in `block in tsort_each'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:183:in `block (2 levels) in each_strongly_connected_component'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:219:in `each_strongly_connected_component_from'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:182:in `block in each_strongly_connected_component'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:180:in `each'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:180:in `each_strongly_connected_component'
+	from /usr/local/rvm/rubies/ruby-1.9.3-p327/lib/ruby/1.9.1/tsort.rb:148:in `tsort_each'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/initializable.rb:54:in `run_initializers'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/application.rb:214:in `initialize!'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/railties-4.0.0.rc1/lib/rails/railtie/configurable.rb:30:in `method_missing'
+	from /var/www/pman/data/www/rails_test/config/environment.rb:5:in `<top (required)>'
+	from config.ru:4:in `require'
+	from config.ru:4:in `block in <main>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1:in `<main>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn.rb:44:in `eval'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn.rb:44:in `block in builder'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/bin/unicorn_rails:139:in `call'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/bin/unicorn_rails:139:in `block in rails_builder'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn/http_server.rb:722:in `call'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn/http_server.rb:722:in `build_app!'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/lib/unicorn/http_server.rb:140:in `start'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/gems/unicorn-4.6.2/bin/unicorn_rails:209:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/bin/unicorn_rails:19:in `load'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/bin/unicorn_rails:19:in `<main>'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-1.9.3-p327/bin/ruby_noexec_wrapper:14:in `<main>'

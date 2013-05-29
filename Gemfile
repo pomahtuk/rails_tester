@@ -3,19 +3,20 @@ if RUBY_VERSION =~ /1.9/
   Encoding.default_internal = Encoding::UTF_8
 end
 
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-gem 'rails',     github: 'rails/rails'
-gem 'journey',   :git => 'git://github.com/rails/journey.git'#, :branch => '1-0-stable'
-gem 'arel',      github: 'rails/arel'
+gem 'unicorn'
 
-#gem 'sqlite3'
+gem 'rails', '4.0.0.rc1'
+
 gem 'mysql2'
-gem 'sorcery', github: 'NoamB/sorcery'
+gem 'sorcery', git: "git@github.com:NoamB/sorcery.git"
+
 
 #gem 'haml-rails'#, :git => 'git://github.com/indirect/haml-rails.git'
 gem 'haml-rails', github: 'indirect/haml-rails'
-gem 'haml', '= 3.1.7'
+#gem 'haml', '= 3.1.7'
+gem 'haml', '~> 4.0'
 
 gem 'awesome_nested_set', github: 'collectiveidea/awesome_nested_set'
 gem 'the_sortable_tree', "~> 2.3.0"
@@ -25,8 +26,8 @@ gem 'protected_attributes'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'ajax-datatables-rails'
 
-gem 'state_machine'
-
+#gem 'state_machine'
+gem 'state_machine', git: 'git@github.com:pluginaweek/state_machine.git'
 gem 'kaminari'
 
 gem 'compass'
@@ -35,9 +36,10 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
 
-gem 'the_role', github: 'the-teacher/the_role'
+gem 'the_role', path: '/var/www/pman/data/www/the_role'  #github: 'the-teacher/the_role'
 
-#gem 'remotipart', github: 'JangoSteve/remotipart'
+
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -50,7 +52,6 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -70,6 +71,7 @@ group :development do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

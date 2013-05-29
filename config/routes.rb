@@ -38,6 +38,7 @@ RailsTest::Application.routes.draw do
     resources :users
     get '/categories' => 'categories#admin_index'
     get '/courses' => 'courses#admin_index'
+    get '/tests' => 'tests#admin_index'
   end
 
   resources :categories, :except => [:admin_index] do

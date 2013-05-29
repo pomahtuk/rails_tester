@@ -8,6 +8,23 @@ class TestsController < ApplicationController
     @tests = params[:course_id] ? Test.where(:course_id => params[:course_id]) : Test.all
   end
 
+  def admin_index
+    if params[:format] == 'json'
+      render :json => TestsDatatable.new(view_context)
+    else
+      per_page = if params[:per_page]
+        params[:per_page]
+      else
+        5
+      end
+      @tests = if params[:course_id] 
+        Test.where(:course_id => params[:course_id]).order("id").page(params[:page]).per(per_page)
+      else
+        Test.all.order("id").page(params[:page]).per(per_page)
+      end
+    end
+  end
+
   # GET /tests/1
   def show
   end
